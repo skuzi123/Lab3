@@ -53,33 +53,42 @@ public class MyFrame extends JFrame {
         loginButton.setBounds(100,175,85,50);
         loginButton.setBackground(Color.white);
 
+
         loginButton.addActionListener(e -> {
-         for(int i=0; i<list.size(); i++)
-         {
-             if(Objects.equals(ID.getText(),list.get(i).getLogin()))
-             {
-                 if(Objects.equals(String.valueOf(password.getPassword()),list.get(i).getPassword()))
-                 {
-                     panel.setBackground(Color.green);
-                 }
-                 else
-                 {
-                     panel.setBackground(Color.red);
-                 }
-             }
-         }
+            for(int i=0; i<list.size(); i++)
+            {
+                if(Objects.equals(ID.getText(),list.get(i).getLogin()))
+                {
+                    if(Objects.equals(String.valueOf(password.getPassword()),list.get(i).getPassword()))
+                    {
+                        panel.setBackground(Color.green);
+                    }
+                    else
+                        panel.setBackground(Color.red);
+                }
+                else if(Objects.equals(String.valueOf(password.getPassword()),list.get(i).getPassword()))
+                {
+                    if(Objects.equals(ID.getText(),list.get(i).getLogin()))
+                    {
+                        panel.setBackground(Color.green);
+                    }
+                    else
+                        panel.setBackground(Color.red);
+                }
+
+            }
         });
 
         JButton cancelButton= new JButton("CANCEL");
         cancelButton.setBounds(200,175,85,50);
         cancelButton.setBackground(Color.white);
-cancelButton.addActionListener(new ActionListener() {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        ID.setText("");
-        password.setText("");
-    }
-});
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ID.setText("");
+                password.setText("");
+            }
+        });
         this.setSize(400,300);
         this.setVisible(true);
         panel.add(ID);
