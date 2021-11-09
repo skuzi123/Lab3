@@ -55,28 +55,22 @@ public class MyFrame extends JFrame {
 
 
         loginButton.addActionListener(e -> {
-            for(int i=0; i<list.size(); i++)
-            {
-                if(Objects.equals(ID.getText(),list.get(i).getLogin()))
-                {
-                    if(Objects.equals(String.valueOf(password.getPassword()),list.get(i).getPassword()))
-                    {
+
+            for (Person person : list) {
+                if (Objects.equals(ID.getText(), person.getLogin())) {
+                    if (Objects.equals(String.valueOf(password.getPassword()), person.getPassword())) {
                         panel.setBackground(Color.green);
-                    }
-                    else
+                    } else
                         panel.setBackground(Color.red);
-                }
-                else if(Objects.equals(String.valueOf(password.getPassword()),list.get(i).getPassword()))
-                {
-                    if(Objects.equals(ID.getText(),list.get(i).getLogin()))
-                    {
+                } else if (Objects.equals(String.valueOf(password.getPassword()), person.getPassword())) {
+                    if (Objects.equals(ID.getText(), person.getLogin())) {
                         panel.setBackground(Color.green);
-                    }
-                    else
+                    } else
                         panel.setBackground(Color.red);
                 }
 
             }
+
         });
 
         JButton cancelButton= new JButton("CANCEL");
